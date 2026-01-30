@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "playwright test",
-    "show-report": "playwright show-report"
+    "test": "node ./node_modules/@playwright/test/cli.js test",
+    "show-report": "node ./node_modules/@playwright/test/cli.js show-report"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +14,6 @@
   "devDependencies": {
     "@playwright/test": "^1.58.0",
     "@types/node": "^25.1.0"
-  }
+  },
+  "dependencies": {}
 }
