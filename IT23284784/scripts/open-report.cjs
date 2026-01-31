@@ -15,8 +15,26 @@ function main() {
   console.log(`Opening report: ${reportIndex}`);
 
   if (process.platform === 'win32') {
-    // Use cmd.exe to avoid PowerShell issues with '&' in paths.
-    execFileSync('cmd', ['/c', 'start', '', reportIndex], { stdio: 'ignore' });
+    // Open a local HTML file in the default browser.
+    // Paths here may contain '&', so we avoid PowerShell and ensure quoting.
+    const attempts = [
+      () => execFileSync('rundll32.exe', ['url.dll,FileProtocolHandler', reportIndex], { stdio: 'ignore', windowsHide: true }),
+      () => execFileSync('cmd', ['/c', `start "" "${reportIndex}"`], { stdio: 'ignore', windowsHide: true }),
+      () => execFileSync('explorer.exe', [reportIndex], { stdio: 'ignore', windowsHide: true }),
+    ];
+
+    for (const attempt of attempts) {
+      try {
+        attempt();
+        process.exitCode = 0;
+        return;
+      } catch {
+        // try next opener
+      }
+    }
+
+    console.error('Failed to open the Playwright report automatically.');
+    process.exitCode = 1;
     return;
   }
 
