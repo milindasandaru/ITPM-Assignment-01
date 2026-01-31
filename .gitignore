@@ -1,0 +1,14 @@
+# Node
+**/node_modules/
+
+# Playwright
+**/playwright-report/
+**/test-results/
+**/.playwright-artifacts-*/
+
+# Generated test output
+**/test_results.txt
+
+# Misc
+*.log
+.DS_Store
