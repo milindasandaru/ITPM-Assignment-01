@@ -1,3 +1,9 @@
+# Ignore Playwright and test artifacts
+node_modules/
+playwright-report/
+test-results/
+test_results.txt
+scripts/inspect-swifttranslator.cjs
 
 # Playwright
 node_modules/
