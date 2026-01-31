@@ -34,15 +34,33 @@ npm install
 - Execute the full suite:
 
 ```bash
-npx playwright test
+npm run test
 ```
 
-**Optional: View Report**
+This will run the suite and (if all tests pass) open the HTML report automatically.
+
+**Run Tests Without Opening Report (CI-safe)**
 
 ```bash
-npx playwright show-report
+npm run test:ci
+```
+
+**View Report (Manually)**
+
+```bash
+npm run show-report
+```
+
+**Clean Generated Artifacts (Optional)**
+
+```bash
+npm run clean
 ```
 
 **Notes**
-- Results are appended to `test_results.txt` in the format: `ID | Input | Actual Output`.
+- Generated artifacts like Playwright reports and test results are ignored by git.
 - Includes a UI test (`Pos_UI_0001`) that types slowly to verify real-time updates.
+
+**Windows Path Note**
+- If your folder path contains `&` (like `Labs_&_Tutorials`), avoid running `npx playwright ...` directly.
+	Use the provided `npm run ...` scripts instead.

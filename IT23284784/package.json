@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node ./node_modules/@playwright/test/cli.js test",
-    "show-report": "node ./node_modules/@playwright/test/cli.js show-report"
+    "clean": "node ./scripts/clean-artifacts.cjs",
+    "test": "node ./scripts/run-tests-and-open-report.cjs",
+    "test:ci": "node ./node_modules/@playwright/test/cli.js test",
+    "show-report": "node ./scripts/open-report.cjs"
   },
   "keywords": [],
   "author": "",
