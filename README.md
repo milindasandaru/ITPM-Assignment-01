@@ -46,11 +46,3 @@ npx playwright show-report
 **Notes**
 - Results are appended to `test_results.txt` in the format: `ID | Input | Actual Output`.
 - Includes a UI test (`Pos_UI_0001`) that types slowly to verify real-time updates.
-
-{Pos_Fun_0005
-
-oyaa assignement eka karaadha?
-
-ඔයා අස්සිග්නෙමෙන්ට් එක කරාද?}
-
-it shows assignment translated to sinhala
